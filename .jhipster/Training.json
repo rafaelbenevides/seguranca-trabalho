@@ -1,0 +1,40 @@
+{
+    "name": "Training",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "items",
+            "otherEntityName": "trainingItem",
+            "otherEntityRelationshipName": "training"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "plant",
+            "otherEntityName": "plant",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "plantType",
+            "otherEntityName": "plantType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180926113923",
+    "javadoc": "Training class\nTable 'tb_training'\n\n@author rafaelbenevides\n@company Queiroz Galvão",
+    "entityTableName": "tb_training",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,25 @@
+{
+    "name": "JobRole",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 120
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180926113922",
+    "javadoc": "JobRole class\nTable 'tb_job_role'\n\n@author rafaelbenevides\n@company Queiroz Galvão",
+    "entityTableName": "tb_job_role",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

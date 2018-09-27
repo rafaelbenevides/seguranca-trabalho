@@ -1,0 +1,22 @@
+
+{
+    "segurancatrabalhoApp": {
+        "plant" : {
+            "home": {
+                "title": "Plants",
+                "createLabel": "Criar novo Plant",
+                "createOrEditLabel": "Criar ou editar Plant"
+            },
+            "created": "Um novo Plant foi criado com o identificador {{ param }}",
+            "updated": "Um Plant foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Plant foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Plant {{ id }}?"
+            },
+            "detail": {
+                "title": "Plant"
+            },
+            "name": "Name"
+        }
+    }
+}

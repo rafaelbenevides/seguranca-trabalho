@@ -1,0 +1,22 @@
+
+{
+    "segurancatrabalhoApp": {
+        "plantType" : {
+            "home": {
+                "title": "Plant Types",
+                "createLabel": "Create a new Plant Type",
+                "createOrEditLabel": "Create or edit a Plant Type"
+            },
+            "created": "A new Plant Type is created with identifier {{ param }}",
+            "updated": "A Plant Type is updated with identifier {{ param }}",
+            "deleted": "A Plant Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Plant Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Plant Type"
+            },
+            "name": "Name"
+        }
+    }
+}

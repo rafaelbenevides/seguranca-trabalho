@@ -1,0 +1,25 @@
+{
+    "name": "Plant",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 120
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180926113919",
+    "javadoc": "Plant class\nTable 'tb_plant'\n\n@author rafaelbenevides\n@company Queiroz Galvão",
+    "entityTableName": "tb_plant",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

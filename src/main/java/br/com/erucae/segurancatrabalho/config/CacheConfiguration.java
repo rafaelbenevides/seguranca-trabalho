@@ -38,6 +38,14 @@ public class CacheConfiguration {
             cm.createCache(br.com.erucae.segurancatrabalho.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.erucae.segurancatrabalho.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.erucae.segurancatrabalho.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.TrainingType.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.Plant.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.PlantType.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.Employee.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.JobRole.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.Training.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.Training.class.getName() + ".items", jcacheConfiguration);
+            cm.createCache(br.com.erucae.segurancatrabalho.domain.TrainingItem.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

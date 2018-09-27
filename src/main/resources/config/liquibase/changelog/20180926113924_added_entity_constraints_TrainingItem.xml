@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TrainingItem.
+    -->
+    <changeSet id="20180926113924-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="training_id"
+                                 baseTableName="tb_training_item"
+                                 constraintName="fk_training_item_training_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tb_training"/>
+
+        <addForeignKeyConstraint baseColumnNames="training_type_id"
+                                 baseTableName="tb_training_item"
+                                 constraintName="fk_training_item_training_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tb_training_type"/>
+
+    </changeSet>
+</databaseChangeLog>

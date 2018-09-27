@@ -1,0 +1,170 @@
+DEFAULT_MAX_LENGTH_SHORT = 60
+DEFAULT_MAX_LENGTH_MIDDLE = 120
+DEFAULT_MAX_LENGTH_LONG = 180
+DEFAULT_MAX_LENGTH_PHONE = 15
+DEFAULT_MAX_LENGTH_ZIP = 9
+DEFAULT_MAX_LENGTH_CREATED_BY = 50
+DEFAULT_MAX_LENGTH_UPDATED_BY = 50
+
+
+/**
+ * EpiType enum
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+enum EpiType { 
+	LOCK_FALLS,
+    INSULATING
+}
+
+
+/**
+ * EpiSize enum
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+enum EpiSize { 
+	SINGLE,
+    P,
+    M,
+    G,
+    GG
+}
+
+
+/**
+ * TrainingApplicable enum
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+enum TrainingApplicable {
+	APPLICABLE,
+    NOT_APPLICABLE
+}
+
+
+/**
+ * CertificateStatus enum
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+enum CertificateStatus {
+	UPDATED,
+    ABSENT,
+    IN_PROGRESS,
+    LATE
+}
+
+
+/**
+ * TrainingType class
+ * Table 'tb_training_type'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity TrainingType (tb_training_type) {
+	name String required maxlength(DEFAULT_MAX_LENGTH_MIDDLE)
+}
+
+
+/**
+ * Plant class
+ * Table 'tb_plant'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity Plant (tb_plant) {
+	name String required maxlength(DEFAULT_MAX_LENGTH_MIDDLE)
+}
+
+
+/**
+ * PlantType class
+ * Table 'tb_plant_type'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity PlantType (tb_plant_type) {
+	name String required maxlength(DEFAULT_MAX_LENGTH_MIDDLE)
+}
+
+
+/**
+ * Employee class
+ * Table 'tb_employee'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity Employee (tb_employee) {
+	name String required maxlength(DEFAULT_MAX_LENGTH_MIDDLE)
+}
+
+relationship ManyToOne {
+	Employee{employee} to JobRole
+}
+
+
+/**
+ * JobRole class
+ * Table 'tb_job_role'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity JobRole (tb_job_role) {
+	name String required maxlength(DEFAULT_MAX_LENGTH_MIDDLE)
+}
+
+
+/**
+ * Training class
+ * Table 'tb_training'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity Training (tb_training) {
+}
+
+relationship OneToMany {
+	Training{items} to TrainingItem
+}
+
+relationship ManyToOne {
+	Training{plant} to Plant
+    Training{plantType} to PlantType
+    Training{employee} to Employee
+}
+
+
+/**
+ * TrainingItem class
+ * Table 'tb_training_item'
+ *
+ * @author rafaelbenevides
+ * @company Queiroz Galvão
+ */
+entity TrainingItem (tb_training_item) {
+	date LocalDate,
+    trainingApplicable TrainingApplicable,
+    certificateValidity Integer,
+    hoursOfTraining Integer
+}
+
+relationship ManyToOne {
+	TrainingItem{trainingType} to TrainingType
+}
+
+
+dto * with mapstruct
+service * with serviceClass
+service Training with serviceImpl
+paginate Training with infinite-scroll

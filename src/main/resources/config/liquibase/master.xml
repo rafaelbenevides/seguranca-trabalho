@@ -5,6 +5,16 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113918_added_entity_TrainingType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113919_added_entity_Plant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113920_added_entity_PlantType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113921_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113922_added_entity_JobRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113923_added_entity_Training.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113924_added_entity_TrainingItem.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180926113921_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113923_added_entity_constraints_Training.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180926113924_added_entity_constraints_TrainingItem.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

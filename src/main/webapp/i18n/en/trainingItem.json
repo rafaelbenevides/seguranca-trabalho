@@ -1,0 +1,27 @@
+
+{
+    "segurancatrabalhoApp": {
+        "trainingItem" : {
+            "home": {
+                "title": "Training Items",
+                "createLabel": "Create a new Training Item",
+                "createOrEditLabel": "Create or edit a Training Item"
+            },
+            "created": "A new Training Item is created with identifier {{ param }}",
+            "updated": "A Training Item is updated with identifier {{ param }}",
+            "deleted": "A Training Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Training Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Training Item"
+            },
+            "date": "Date",
+            "trainingApplicable": "Training Applicable",
+            "certificateValidity": "Certificate Validity",
+            "hoursOfTraining": "Hours Of Training",
+            "training": "Training",
+            "trainingType": "Training Type"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="trainingItem">
+            <h2><span jhiTranslate="segurancatrabalhoApp.trainingItem.detail.title">Training Item</span> {{trainingItem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="segurancatrabalhoApp.trainingItem.date">Date</span></dt>
+                <dd>
+                    <span>{{trainingItem.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.trainingItem.trainingApplicable">Training Applicable</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'segurancatrabalhoApp.TrainingApplicable.' + trainingItem.trainingApplicable}}">{{trainingItem.trainingApplicable}}</span>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.trainingItem.certificateValidity">Certificate Validity</span></dt>
+                <dd>
+                    <span>{{trainingItem.certificateValidity}}</span>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.trainingItem.hoursOfTraining">Hours Of Training</span></dt>
+                <dd>
+                    <span>{{trainingItem.hoursOfTraining}}</span>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.trainingItem.training">Training</span></dt>
+                <dd>
+                    <div *ngIf="trainingItem.trainingId">
+                        <a [routerLink]="['/training', trainingItem.trainingId, 'view']">{{trainingItem.trainingId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.trainingItem.trainingType">Training Type</span></dt>
+                <dd>
+                    <div *ngIf="trainingItem.trainingTypeId">
+                        <a [routerLink]="['/training-type', trainingItem.trainingTypeId, 'view']">{{trainingItem.trainingTypeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/training-item', trainingItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

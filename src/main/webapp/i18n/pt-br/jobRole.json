@@ -1,0 +1,22 @@
+
+{
+    "segurancatrabalhoApp": {
+        "jobRole" : {
+            "home": {
+                "title": "Job Roles",
+                "createLabel": "Criar novo Job Role",
+                "createOrEditLabel": "Criar ou editar Job Role"
+            },
+            "created": "Um novo Job Role foi criado com o identificador {{ param }}",
+            "updated": "Um Job Role foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Job Role foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Job Role {{ id }}?"
+            },
+            "detail": {
+                "title": "Job Role"
+            },
+            "name": "Name"
+        }
+    }
+}

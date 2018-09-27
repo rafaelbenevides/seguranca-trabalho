@@ -1,0 +1,32 @@
+{
+    "name": "Employee",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 120
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "employee",
+            "otherEntityName": "jobRole",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180926113921",
+    "javadoc": "Employee class\nTable 'tb_employee'\n\n@author rafaelbenevides\n@company Queiroz Galvão",
+    "entityTableName": "tb_employee",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

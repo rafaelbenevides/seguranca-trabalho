@@ -1,0 +1,22 @@
+
+{
+    "segurancatrabalhoApp": {
+        "plantType" : {
+            "home": {
+                "title": "Plant Types",
+                "createLabel": "Crear nuevo Plant Type",
+                "createOrEditLabel": "Crear o editar Plant Type"
+            },
+            "created": "Un nuevo Plant Type ha sido creado con el identificador {{ param }}",
+            "updated": "Un Plant Type ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Plant Type ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Plant Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Plant Type"
+            },
+            "name": "Name"
+        }
+    }
+}

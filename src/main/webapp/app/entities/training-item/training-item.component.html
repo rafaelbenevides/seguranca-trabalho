@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="segurancatrabalhoApp.trainingItem.home.title">Training Items</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-training-item" [routerLink]="['/training-item/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="segurancatrabalhoApp.trainingItem.home.createLabel">
+            Create new Training Item
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="trainingItems">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="segurancatrabalhoApp.trainingItem.date">Date</span></th>
+            <th><span jhiTranslate="segurancatrabalhoApp.trainingItem.trainingApplicable">Training Applicable</span></th>
+            <th><span jhiTranslate="segurancatrabalhoApp.trainingItem.certificateValidity">Certificate Validity</span></th>
+            <th><span jhiTranslate="segurancatrabalhoApp.trainingItem.hoursOfTraining">Hours Of Training</span></th>
+            <th><span jhiTranslate="segurancatrabalhoApp.trainingItem.training">Training</span></th>
+            <th><span jhiTranslate="segurancatrabalhoApp.trainingItem.trainingType">Training Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let trainingItem of trainingItems ;trackBy: trackId">
+                <td><a [routerLink]="['/training-item', trainingItem.id, 'view' ]">{{trainingItem.id}}</a></td>
+                <td>{{trainingItem.date | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'segurancatrabalhoApp.TrainingApplicable.' + trainingItem.trainingApplicable}}">{{trainingItem.trainingApplicable}}</td>
+                <td>{{trainingItem.certificateValidity}}</td>
+                <td>{{trainingItem.hoursOfTraining}}</td>
+                <td>
+                    <div *ngIf="trainingItem.trainingId">
+                        <a [routerLink]="['../training', trainingItem.trainingId , 'view' ]" >{{trainingItem.trainingId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="trainingItem.trainingTypeId">
+                        <a [routerLink]="['../training-type', trainingItem.trainingTypeId , 'view' ]" >{{trainingItem.trainingTypeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/training-item', trainingItem.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/training-item', trainingItem.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'training-item/'+ trainingItem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

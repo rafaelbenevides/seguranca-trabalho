@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="training">
+            <h2><span jhiTranslate="segurancatrabalhoApp.training.detail.title">Training</span> {{training.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="segurancatrabalhoApp.training.plant">Plant</span></dt>
+                <dd>
+                    <div *ngIf="training.plantId">
+                        <a [routerLink]="['/plant', training.plantId, 'view']">{{training.plantId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.training.plantType">Plant Type</span></dt>
+                <dd>
+                    <div *ngIf="training.plantTypeId">
+                        <a [routerLink]="['/plant-type', training.plantTypeId, 'view']">{{training.plantTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="segurancatrabalhoApp.training.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="training.employeeId">
+                        <a [routerLink]="['/employee', training.employeeId, 'view']">{{training.employeeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/training', training.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

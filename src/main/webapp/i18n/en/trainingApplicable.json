@@ -1,0 +1,9 @@
+{
+    "segurancatrabalhoApp": {
+        "TrainingApplicable" : {
+            "null": "",
+            "APPLICABLE": "APPLICABLE",
+            "NOT_APPLICABLE": "NOT_APPLICABLE"
+        }
+    }
+}
