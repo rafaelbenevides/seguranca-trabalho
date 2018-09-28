@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { ITrainingType } from 'app/shared/model/training-type.model';
 
 export const enum TrainingApplicable {
     APPLICABLE = 'APPLICABLE',
@@ -13,6 +14,7 @@ export interface ITrainingItem {
     hoursOfTraining?: number;
     trainingId?: number;
     trainingTypeId?: number;
+    trainingType?: ITrainingType;
 }
 
 export class TrainingItem implements ITrainingItem {
@@ -23,6 +25,7 @@ export class TrainingItem implements ITrainingItem {
         public certificateValidity?: number,
         public hoursOfTraining?: number,
         public trainingId?: number,
-        public trainingTypeId?: number
+        public trainingTypeId?: number,
+        public trainingType?: ITrainingType
     ) {}
 }

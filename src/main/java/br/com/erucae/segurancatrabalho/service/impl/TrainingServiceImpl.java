@@ -1,10 +1,13 @@
 package br.com.erucae.segurancatrabalho.service.impl;
 
+import br.com.erucae.segurancatrabalho.domain.TrainingItem;
 import br.com.erucae.segurancatrabalho.service.TrainingService;
 import br.com.erucae.segurancatrabalho.domain.Training;
 import br.com.erucae.segurancatrabalho.repository.TrainingRepository;
 import br.com.erucae.segurancatrabalho.service.dto.TrainingDTO;
 import br.com.erucae.segurancatrabalho.service.mapper.TrainingMapper;
+import br.com.erucae.segurancatrabalho.service.mapper.TrainingMapperVM;
+import br.com.erucae.segurancatrabalho.web.rest.vm.TrainingVM;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.Optional;
+import java.util.Set;
+
 /**
  * Service Implementation for managing Training.
  */
@@ -28,23 +33,27 @@ public class TrainingServiceImpl implements TrainingService {
 
     private final TrainingMapper trainingMapper;
 
-    public TrainingServiceImpl(TrainingRepository trainingRepository, TrainingMapper trainingMapper) {
+    private final TrainingMapperVM trainingMapperVM;
+
+    public TrainingServiceImpl(TrainingRepository trainingRepository, TrainingMapper trainingMapper,
+                               TrainingMapperVM trainingMapperVM) {
         this.trainingRepository = trainingRepository;
         this.trainingMapper = trainingMapper;
+        this.trainingMapperVM = trainingMapperVM;
     }
 
     /**
      * Save a training.
      *
-     * @param trainingDTO the entity to save
+     * @param trainingVM the entity to save
      * @return the persisted entity
      */
     @Override
-    public TrainingDTO save(TrainingDTO trainingDTO) {
-        log.debug("Request to save Training : {}", trainingDTO);
-        Training training = trainingMapper.toEntity(trainingDTO);
+    public TrainingVM save(TrainingVM trainingVM) {
+        log.debug("Request to save Training : {}", trainingVM);
+        Training training = resolveTraining(trainingVM);
         training = trainingRepository.save(training);
-        return trainingMapper.toDto(training);
+        return trainingMapperVM.toDto(training);
     }
 
     /**
@@ -70,10 +79,10 @@ public class TrainingServiceImpl implements TrainingService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<TrainingDTO> findOne(Long id) {
+    public Optional<TrainingVM> findOne(Long id) {
         log.debug("Request to get Training : {}", id);
         return trainingRepository.findById(id)
-            .map(trainingMapper::toDto);
+            .map(trainingMapperVM::toDto);
     }
 
     /**
@@ -85,5 +94,11 @@ public class TrainingServiceImpl implements TrainingService {
     public void delete(Long id) {
         log.debug("Request to delete Training : {}", id);
         trainingRepository.deleteById(id);
+    }
+
+    private Training resolveTraining(TrainingVM trainingVM) {
+        final Training training = trainingMapper.toEntity(trainingVM);
+        training.getItems().forEach(trainingItem -> trainingItem.setTraining(training));
+        return training;
     }
 }

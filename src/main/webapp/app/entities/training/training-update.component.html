@@ -9,27 +9,51 @@
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="training.id" readonly />
                 </div>
-
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.plant" for="field_plant">Plant</label>
                     <select class="form-control" id="field_plant" name="plant" [(ngModel)]="training.plantId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="plantOption.id" *ngFor="let plantOption of plants; trackBy: trackPlantById">{{plantOption.id}}</option>
+                        <option [ngValue]="plantOption.id" *ngFor="let plantOption of plants; trackBy: trackPlantById">{{plantOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.plantType" for="field_plantType">Plant Type</label>
                     <select class="form-control" id="field_plantType" name="plantType" [(ngModel)]="training.plantTypeId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="plantTypeOption.id" *ngFor="let plantTypeOption of planttypes; trackBy: trackPlantTypeById">{{plantTypeOption.id}}</option>
+                        <option [ngValue]="plantTypeOption.id" *ngFor="let plantTypeOption of planttypes; trackBy: trackPlantTypeById">{{plantTypeOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.employee" for="field_employee">Employee</label>
                     <select class="form-control" id="field_employee" name="employee" [(ngModel)]="training.employeeId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                        <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.name}}</option>
                     </select>
+                </div>
+                <!-- Items -->
+                <div class="card mt-3" *ngFor="let item of training.items; let id = index">
+                    <h4 class="card-header">{{item.trainingType.name}}</h4>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.employee" for="field_employee">Employee</label>
+                            <select class="form-control form-control-sm" id="field_trainingApplicable_{{id}}" name="trainingApplicable" [(ngModel)]="item.trainingApplicable" >
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="APPLICABLE">APLICÁVEL</option>
+                                <option [ngValue]="NOT_APPLICABLE">NÃO APLICÁVEL</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.employee" for="field_employee">Employee</label>
+                            <input type="date" class="form-control form-control-sm" name="date" id="field_date_{{id}}" [(ngModel)]="item.date" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.employee" for="field_employee">Employee</label>
+                            <input type="number" class="form-control form-control-sm" name="certificateValidity" id="field_certificateValidity_{{id}}" [(ngModel)]="item.certificateValidity" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="segurancatrabalhoApp.training.employee" for="field_employee">Employee</label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>

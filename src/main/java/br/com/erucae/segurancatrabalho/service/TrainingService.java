@@ -2,6 +2,7 @@ package br.com.erucae.segurancatrabalho.service;
 
 import br.com.erucae.segurancatrabalho.service.dto.TrainingDTO;
 
+import br.com.erucae.segurancatrabalho.web.rest.vm.TrainingVM;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,10 +16,10 @@ public interface TrainingService {
     /**
      * Save a training.
      *
-     * @param trainingDTO the entity to save
+     * @param trainingVM the entity to save
      * @return the persisted entity
      */
-    TrainingDTO save(TrainingDTO trainingDTO);
+    TrainingVM save(TrainingVM trainingVM);
 
     /**
      * Get all the trainings.
@@ -35,7 +36,7 @@ public interface TrainingService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<TrainingDTO> findOne(Long id);
+    Optional<TrainingVM> findOne(Long id);
 
     /**
      * Delete the "id" training.
